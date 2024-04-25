@@ -31,6 +31,10 @@ import com.example.imagerecognition.presentation.CameraPreview
 import com.example.imagerecognition.presentation.ObjectImageAnalyzer
 import com.example.imagerecognition.ui.theme.ImageRecognitionTheme
 import android.Manifest
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Color
 
 
 class MainActivity : ComponentActivity() {
@@ -52,7 +56,7 @@ class MainActivity : ComponentActivity() {
                             context = applicationContext
                         ),
                         onResults = {
-                            classifications = it
+                            classifications = it.sortedByDescending { classification -> classification.score }.take(3)
                         }
                     )
                 }
@@ -71,6 +75,13 @@ class MainActivity : ComponentActivity() {
                 ) {
                     CameraPreview(controller, Modifier.fillMaxSize())
 
+                    Box(
+                        modifier = Modifier
+                            .size(321.dp) // Match the size of the cropped area
+                            .align(Alignment.Center) // Center the box
+                            .border(2.dp, Color.Red, RoundedCornerShape(8.dp)) // Add a border
+                    )
+
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -78,7 +89,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         classifications.forEach {
                             Text(
-                                text = it.name,
+                                text = "${it.name} - Score: ${it.score}",
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .background(MaterialTheme.colorScheme.primaryContainer)
@@ -98,4 +109,3 @@ class MainActivity : ComponentActivity() {
         this, Manifest.permission.CAMERA
     ) == PackageManager.PERMISSION_GRANTED
 }
-

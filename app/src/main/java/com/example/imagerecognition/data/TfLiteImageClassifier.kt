@@ -32,7 +32,7 @@ class TfLiteImageClassifier(
         try {
             classifier = ImageClassifier.createFromFileAndOptions(
                 context,
-                "landmarks.tflite",
+                "model.tflite",
                 options
             )
         } catch (e: IllegalStateException) {
