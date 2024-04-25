@@ -13,9 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,17 +21,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.imagerecognition.data.TfLiteLandmarkClassifier
+import com.example.imagerecognition.data.TfLiteImageClassifier
 import com.example.imagerecognition.domain.Classification
-import com.example.imagerecognition.domain.LandmarkClassifier
 import com.example.imagerecognition.presentation.CameraPreview
-import com.example.imagerecognition.presentation.LandmarkImageAnalyzer
+import com.example.imagerecognition.presentation.ObjectImageAnalyzer
 import com.example.imagerecognition.ui.theme.ImageRecognitionTheme
+import android.Manifest
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,8 +47,8 @@ class MainActivity : ComponentActivity() {
                     mutableStateOf(emptyList<Classification>())
                 }
                 val analyzer = remember {
-                    LandmarkImageAnalyzer(
-                        classifier = TfLiteLandmarkClassifier(
+                    ObjectImageAnalyzer(
+                        classifier = TfLiteImageClassifier(
                             context = applicationContext
                         ),
                         onResults = {
@@ -86,7 +84,7 @@ class MainActivity : ComponentActivity() {
                                     .background(MaterialTheme.colorScheme.primaryContainer)
                                     .padding(8.dp),
                                 textAlign = TextAlign.Center,
-                                frontSize = 20.sp,
+                                fontSize = 20.sp,
                                 color = MaterialTheme.colorScheme.primary
                             )
                         }

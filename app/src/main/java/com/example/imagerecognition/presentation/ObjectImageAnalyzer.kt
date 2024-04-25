@@ -3,10 +3,10 @@ package com.example.imagerecognition.presentation
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.example.imagerecognition.domain.Classification
-import com.example.imagerecognition.domain.LandmarkClassifier
+import com.example.imagerecognition.domain.ObjectClassifier
 
-class LandmarkImageAnalyzer(
-    private val classifier: LandmarkClassifier,
+class ObjectImageAnalyzer(
+    private val classifier: ObjectClassifier,
     private val onResults: (List<Classification>) -> Unit
 ): ImageAnalysis.Analyzer{
 

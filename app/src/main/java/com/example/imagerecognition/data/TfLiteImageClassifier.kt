@@ -3,19 +3,19 @@ package com.example.imagerecognition.data
 import android.content.Context
 import android.graphics.Bitmap
 import android.view.Surface
-import androidx.camera.core.ImageProcessor
 import com.example.imagerecognition.domain.Classification
-import com.example.imagerecognition.domain.LandmarkClassifier
+import com.example.imagerecognition.domain.ObjectClassifier
+import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.core.vision.ImageProcessingOptions
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 
-class TfLiteLandmarkClassifier(
+class TfLiteImageClassifier(
     private val context: Context,
     private val threshold: Float = 0.5f,
     private val maxResults: Int = 1
-): LandmarkClassifier {
+): ObjectClassifier {
     private var classifier: ImageClassifier? = null
 
     private fun setupClassifier() {
