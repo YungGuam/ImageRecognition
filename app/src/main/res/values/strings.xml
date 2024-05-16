@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ImageRecognition</string>
+    <string name="default_web_client_id">573602968079-5nqmmpmeh0n8cm07163q6dnvmjlfm31q.apps.googleusercontent.com</string>
 </resources>

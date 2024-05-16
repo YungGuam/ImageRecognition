@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "573602968079",
+    "project_id": "imagerecognition-f6095",
+    "storage_bucket": "imagerecognition-f6095.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573602968079:android:0850aab65f53557203e97a",
+        "android_client_info": {
+          "package_name": "com.example.imagerecognition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573602968079-5nqmmpmeh0n8cm07163q6dnvmjlfm31q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw_-l4OE9KduIvpRzLo1-Jsf6dqmr7xwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573602968079-5nqmmpmeh0n8cm07163q6dnvmjlfm31q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
